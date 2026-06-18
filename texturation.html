@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texturation & Matériaux - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>Terminale Intercorps 3D Academy</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Accueil</a></li>
+                <li><a href="index.html#courses">Formations</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 40vh; padding: 150px 20px 50px;">
+        <div class="container" style="text-align: center;">
+            <h1 class="hero-title" style="font-size: 2.5rem;">
+                <span class="highlight">Texturation & Matériaux</span>
+            </h1>
+            <p class="hero-subtitle">Découvrez nos réalisations en texturation 3D</p>
+        </div>
+    </section>
+
+    <section class="portfolio" style="padding: 50px 20px;">
+        <div class="container">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/t1.png" alt="Texturation 1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t2.png" alt="Texturation 2" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t3.png" alt="Texturation 3" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t4.png" alt="Texturation 4" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t5.png" alt="Texturation 5" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t6.png" alt="Texturation 6" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t7.png" alt="Texturation 7" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/t8.png" alt="Texturation 8" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" style="padding: 50px 20px;">
+        <div class="container">
+            <h2 class="section-title">Inscription à la Formation</h2>
+            <p class="section-subtitle">Rejoignez notre formation Texturation & Matériaux</p>
+            <div class="form-container">
+                <form id="inscriptionForm">
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="niveau">Niveau actuel</label>
+                        <select id="niveau" name="niveau" required>
+                            <option value="">Sélectionnez votre niveau</option>
+                            <option value="debutant">Débutant</option>
+                            <option value="intermediaire">Intermédiaire</option>
+                            <option value="avance">Avancé</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Terminale Intercorps 3D Academy. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
