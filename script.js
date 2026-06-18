@@ -80,4 +80,38 @@ function animateHologram() {
 }
 
 // Démarrer l'animation toutes les 3 secondes
-setInterval(animateHologram, 3000);
+if (hologramImages.length > 0) {
+    setInterval(animateHologram, 3000);
+}
+
+// Formulaire d'inscription
+const inscriptionForm = document.getElementById('inscriptionForm');
+const formMessage = document.getElementById('formMessage');
+
+if (inscriptionForm) {
+    inscriptionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Récupérer les données du formulaire
+        const formData = new FormData(inscriptionForm);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Simuler l'envoi
+        formMessage.className = 'form-message';
+        formMessage.textContent = 'Envoi en cours...';
+        
+        setTimeout(() => {
+            // Afficher le succès
+            formMessage.className = 'form-message success';
+            formMessage.textContent = `Merci ${data.nom} ! Votre inscription a été enregistrée avec succès. Nous vous contacterons bientôt.`;
+            
+            // Réinitialiser le formulaire
+            inscriptionForm.reset();
+            
+            // Cacher le message après 5 secondes
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        }, 1000);
+    });
+}
