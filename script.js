@@ -115,3 +115,73 @@ if (inscriptionForm) {
         }, 1000);
     });
 }
+
+// Lightbox / Slider
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+let portfolioImages = [];
+let currentLightboxIndex = 0;
+
+if (lightbox) {
+    // Récupérer toutes les images du portfolio sur la page
+    document.querySelectorAll('.portfolio-item img').forEach((img, index) => {
+        portfolioImages.push(img.src);
+        img.style.cursor = 'pointer';
+        
+        img.addEventListener('click', () => {
+            currentLightboxIndex = index;
+            openLightbox(img.src);
+        });
+    });
+    
+    // Ouvrir le lightbox
+    function openLightbox(src) {
+        lightbox.style.display = 'block';
+        lightboxImg.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Fermer le lightbox
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Navigation
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentLightboxIndex = (currentLightboxIndex - 1 + portfolioImages.length) % portfolioImages.length;
+        lightboxImg.src = portfolioImages[currentLightboxIndex];
+    });
+    
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentLightboxIndex = (currentLightboxIndex + 1) % portfolioImages.length;
+        lightboxImg.src = portfolioImages[currentLightboxIndex];
+    });
+    
+    // Navigation au clavier
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'block') {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') {
+                currentLightboxIndex = (currentLightboxIndex - 1 + portfolioImages.length) % portfolioImages.length;
+                lightboxImg.src = portfolioImages[currentLightboxIndex];
+            }
+            if (e.key === 'ArrowRight') {
+                currentLightboxIndex = (currentLightboxIndex + 1) % portfolioImages.length;
+                lightboxImg.src = portfolioImages[currentLightboxIndex];
+            }
+        }
+    });
+}
